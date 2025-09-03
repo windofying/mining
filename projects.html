@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Mining Depot USA, Inc.</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/all/mining-depot-logo.png" alt="Mining Depot Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="qualifications.html" class="nav-link">Qualifications</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Projects</h1>
+            <p>Showcasing our expertise in cryptocurrency mining infrastructure</p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/texas-20mw-site/101.png" alt="Texas 20MW Construction" class="project-img">
+                        <div class="project-overlay">
+                            <button class="view-project-btn" onclick="openModal('texas-20mw')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Texas 20MW Construction</h3>
+                        <p>A large-scale crypto mining center with local political and power support, demonstrating our capability to handle major infrastructure projects.</p>
+                        <div class="project-stats">
+                            <span class="stat">20MW Capacity</span>
+                            <span class="stat">Texas Location</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/texas-8mw-interior/101.png" alt="Texas 8MW Construction" class="project-img">
+                        <div class="project-overlay">
+                            <button class="view-project-btn" onclick="openModal('texas-8mw')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Texas 8MW Construction</h3>
+                        <p>Another robust mining facility in Texas, showcasing our expertise in efficient facility design and construction.</p>
+                        <div class="project-stats">
+                            <span class="stat">8MW Capacity</span>
+                            <span class="stat">Interior Focus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/georgia-15mw-exterior/101.png" alt="Georgia 15MW Construction" class="project-img">
+                        <div class="project-overlay">
+                            <button class="view-project-btn" onclick="openModal('georgia-15mw')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Georgia 15MW Construction</h3>
+                        <p>Expanding our footprint in the Southeast U.S. with this comprehensive mining facility project.</p>
+                        <div class="project-stats">
+                            <span class="stat">15MW Capacity</span>
+                            <span class="stat">Southeast U.S.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/solar-container-farm/101.jpg" alt="Solar-Powered Mining Container Project" class="project-img">
+                        <div class="project-overlay">
+                            <button class="view-project-btn" onclick="openModal('solar-container')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Solar-Powered Mining Container Project</h3>
+                        <p>A 10MW solar farm with integrated bitcoin mining, demonstrating our commitment to sustainable energy solutions.</p>
+                        <div class="project-stats">
+                            <span class="stat">10MW Solar</span>
+                            <span class="stat">Sustainable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/kansas-oil-field-site/101.jpg" alt="Kansas Oil Field Project" class="project-img">
+                        <div class="project-overlay">
+                            <button class="view-project-btn" onclick="openModal('kansas-oil')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Kansas Oil Field Project</h3>
+                        <p>Utilizing existing wells in a 4000-acre oil field for energy-based mining operations, showcasing innovative energy integration.</p>
+                        <div class="project-stats">
+                            <span class="stat">4000 Acres</span>
+                            <span class="stat">Energy Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="image-gallery">
+                    <div class="gallery-container">
+                        <img id="modalImage" src="" alt="" class="gallery-image">
+                        <button class="gallery-nav prev" onclick="changeImage(-1)">&#10094;</button>
+                        <button class="gallery-nav next" onclick="changeImage(1)">&#10095;</button>
+                    </div>
+                    <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+                </div>
+                <div class="modal-info">
+                    <div id="modalDescription"></div>
+                    <div id="modalStats"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/all/mining-depot-logo.png" alt="Mining Depot Logo">
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2024 Mining Depot USA, Inc. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,12 @@
+# 重定向规则
+# 用于处理GitHub Pages的路径重定向
+
+# 如果用户访问根目录，重定向到index.html
+/ /index.html 200
+
+# 处理.html扩展名的重定向
+/about /about.html 200
+/services /services.html 200
+/projects /projects.html 200
+/qualifications /qualifications.html 200
+/contact /contact.html 200

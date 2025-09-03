@@ -1,0 +1,223 @@
+/* About Page Specific Styles */
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(59, 130, 246, 0.3) 100%), url('../images/all/background-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 160px 0 80px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Company Overview */
+.company-overview {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.overview-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.overview-text h2 {
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 30px;
+}
+
+.overview-text p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.overview-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: #2563eb;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Team Section */
+.team-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.team-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 50px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.team-member {
+    background: #f8fafc;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.member-photo {
+    width: 100%;
+    height: 187px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+}
+
+.member-photo img {
+    width: 67%;
+    height: auto;
+    max-height: 67%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-photo img {
+    transform: scale(1.02);
+}
+
+/* Ensure images maintain quality */
+.member-photo img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.member-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.member-info h3 {
+    font-size: 1.3rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.position {
+    color: #2563eb;
+    font-weight: 500;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.description {
+    color: #64748b;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page-header p {
+        font-size: 1.1rem;
+    }
+    
+    .overview-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .overview-text h2 {
+        font-size: 2rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        padding: 20px 15px;
+    }
+    
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+    
+    .member-photo {
+        height: 167px;
+    }
+    
+    .member-photo img {
+        width: 67%;
+        height: auto;
+        max-height: 67%;
+        object-fit: contain;
+    }
+    
+    .member-info {
+        padding: 15px;
+    }
+    
+    .member-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .position {
+        font-size: 0.95rem;
+    }
+    
+    .description {
+        font-size: 0.9rem;
+    }
+}
+

@@ -1,0 +1,21 @@
+<svg width="500" height="350" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="350" fill="#1a1a1a"/>
+  <rect x="50" y="80" width="400" height="220" fill="#2a2a2a" stroke="#4a4a4a" stroke-width="3"/>
+  <rect x="80" y="100" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="160" y="100" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="240" y="100" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="320" y="100" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="80" y="160" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="160" y="160" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="240" y="160" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="320" y="160" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="80" y="220" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="160" y="220" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="240" y="220" width="60" height="40" fill="#4a4a4a"/>
+  <rect x="320" y="220" width="60" height="40" fill="#4a4a4a"/>
+  <text x="250" y="60" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">Texas 8MW Construction</text>
+  <text x="250" y="80" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#cccccc">Robust Mining Facility Interior</text>
+  <text x="250" y="320" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666666">Interior View - Background Image</text>
+</svg>
+
+

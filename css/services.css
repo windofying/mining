@@ -1,0 +1,155 @@
+/* Services Page Specific Styles */
+
+/* Main Services */
+.main-services {
+    padding: 80px 0;
+    background: white;
+}
+
+.service-item {
+    margin-bottom: 100px;
+}
+
+.service-item:last-child {
+    margin-bottom: 0;
+}
+
+.service-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.service-item.reverse .service-content {
+    direction: rtl;
+}
+
+.service-item.reverse .service-text {
+    direction: ltr;
+}
+
+.service-text h2 {
+    font-size: 2.2rem;
+    color: #1e293b;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.service-text p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.service-features {
+    list-style: none;
+}
+
+.service-features li {
+    padding: 8px 0;
+    color: #64748b;
+    position: relative;
+    padding-left: 25px;
+}
+
+.service-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.service-image {
+    text-align: center;
+}
+
+.service-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Additional Services */
+.additional-services {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.additional-services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.service-icon img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .service-item.reverse .service-content {
+        direction: ltr;
+    }
+    
+    .service-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .service-text p {
+        font-size: 1rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-item {
+        margin-bottom: 60px;
+    }
+}
+

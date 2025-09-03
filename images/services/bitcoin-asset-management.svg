@@ -1,0 +1,12 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#1a1a1a"/>
+  <polygon points="200,50 220,100 200,150 180,100" fill="#4a4a4a"/>
+  <rect x="150" y="120" width="100" height="60" fill="#2a2a2a" stroke="#4a4a4a" stroke-width="2"/>
+  <line x1="150" y1="150" x2="250" y2="150" stroke="#4a4a4a" stroke-width="2"/>
+  <line x1="150" y1="160" x2="250" y2="160" stroke="#4a4a4a" stroke-width="2"/>
+  <text x="200" y="80" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">Bitcoin Asset Management</text>
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#cccccc">Investment Strategies</text>
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">Background Image</text>
+</svg>
+
+

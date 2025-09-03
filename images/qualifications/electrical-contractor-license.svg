@@ -1,0 +1,14 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#1a1a1a"/>
+  <rect x="50" y="50" width="300" height="200" fill="#2a2a2a" stroke="#4a4a4a" stroke-width="3"/>
+  <rect x="80" y="80" width="240" height="40" fill="#4a4a4a"/>
+  <text x="200" y="105" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">ELECTRICAL CONTRACTOR</text>
+  <text x="200" y="140" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#cccccc">License</text>
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ffff00">★ TEXAS ★</text>
+  <circle cx="150" cy="190" r="25" fill="#4a4a4a"/>
+  <circle cx="250" cy="190" r="25" fill="#4a4a4a"/>
+  <line x1="175" y1="190" x2="225" y2="190" stroke="#666666" stroke-width="3"/>
+  <text x="200" y="270" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">Electrical Contractor License</text>
+</svg>
+
+

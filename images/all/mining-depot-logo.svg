@@ -1,0 +1,5 @@
+<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="60" fill="#1a1a1a"/>
+  <text x="100" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">MINING DEPOT</text>
+  <text x="100" y="50" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#cccccc">USA, INC.</text>
+</svg> 

@@ -1,0 +1,16 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#1a1a1a"/>
+  <rect x="100" y="80" width="200" height="140" fill="#2a2a2a" stroke="#4a4a4a" stroke-width="2"/>
+  <rect x="120" y="100" width="40" height="30" fill="#4a4a4a"/>
+  <rect x="180" y="100" width="40" height="30" fill="#4a4a4a"/>
+  <rect x="240" y="100" width="40" height="30" fill="#4a4a4a"/>
+  <rect x="120" y="150" width="40" height="30" fill="#4a4a4a"/>
+  <rect x="180" y="150" width="40" height="30" fill="#4a4a4a"/>
+  <rect x="240" y="150" width="40" height="30" fill="#4a4a4a"/>
+  <text x="200" y="60" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">Crypto Data Center</text>
+  <text x="200" y="80" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#cccccc">Upgrades & Renovation</text>
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#cccccc">Modern Infrastructure</text>
+  <text x="200" y="270" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666666">Background Image</text>
+</svg>
+
+

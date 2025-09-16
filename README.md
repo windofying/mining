@@ -84,50 +84,34 @@
 2. **本地服务器**: 使用本地服务器运行项目以获得最佳体验
 3. **部署**: 将文件上传到Web服务器
 
-## GitHub Pages 部署
+## 生产环境部署
 
-### 在线访问
-🌐 **网站地址**: [https://windofying.github.io/mining.github.io/](https://windofying.github.io/mining.github.io/)
+### IONOS 部署 (推荐)
+🌐 **生产网站地址**: [https://www.mining-depot.com](https://www.mining-depot.com)
 
-### 部署步骤
-
-1. **创建GitHub仓库**
+#### 快速部署
+1. **运行部署脚本**
    ```bash
-   # 克隆或创建新仓库
-   git clone https://github.com/windofying/mining.github.io.git
-   cd mining.github.io
+   # Windows 用户
+   deploy.bat
+   
+   # 或手动复制文件到 deploy\ 目录
    ```
 
-2. **上传文件**
-   ```bash
-   # 添加所有文件
-   git add .
-   
-   # 提交更改
-   git commit -m "Initial commit: Mining Depot USA website"
-   
-   # 推送到GitHub
-   git push origin main
-   ```
+2. **上传到 IONOS**
+   - 使用 FTP 客户端 (如 FileZilla)
+   - 上传 `deploy\` 目录中的所有文件到服务器根目录
+   - 确保保持目录结构
 
-3. **启用GitHub Pages**
-   - 进入仓库设置 (Settings)
-   - 找到 "Pages" 部分
-   - 选择 "Deploy from a branch"
-   - 选择 "main" 分支和 "/ (root)" 文件夹
-   - 点击 "Save"
+3. **配置域名**
+   - 在 IONOS 控制面板中配置 www.mining-depot.com
+   - 启用 SSL 证书
+   - 设置 DNS 记录
 
-4. **自动部署**
-   - 网站将自动部署到 `https://windofying.github.io/mining.github.io/`
-   - 每次推送代码到main分支都会自动更新网站
+#### 详细部署指南
+请参考 [IONOS_DEPLOYMENT.md](IONOS_DEPLOYMENT.md) 获取完整的部署说明。
 
-### 部署文件说明
 
-- `.github/workflows/deploy.yml` - GitHub Actions自动部署工作流
-- `_config.yml` - Jekyll配置文件
-- `Gemfile` - Ruby依赖管理文件
-- `.gitignore` - Git忽略文件配置
-- `_redirects` - 路径重定向规则
 
 ## 浏览器支持
 

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nginx SSL 配置指南 - Mining Depot USA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .header {
+            background: #28a745;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .step-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .step-title {
+            color: #28a745;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .step-content {
+            background: #e8f5e8;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .action-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .action-button:hover {
+            background: #0056b3;
+        }
+        .checklist {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .checklist-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .nginx-specific {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔧 Nginx SSL 配置指南</h1>
+            <p>Mining Depot USA, Inc. - Nginx服务器SSL配置解决方案</p>
+        </div>
+
+        <div class="nginx-specific">
+            <h3>🔄 重要说明</h3>
+            <p>您的服务器使用 <strong>Nginx</strong> 而不是 Apache，因此需要不同的配置方法：</p>
+            <ul>
+                <li>❌ .htaccess 文件在 Nginx 中不起作用</li>
+                <li>✅ 需要使用 nginx.conf 配置文件</li>
+                <li>✅ SSL 配置在 server 块中设置</li>
+                <li>✅ 重定向规则使用 return 指令</li>
+            </ul>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">步骤 1: 获取SSL证书</div>
+            <div class="step-content">
+                <h4>1.1 使用Let's Encrypt (推荐)</h4>
+                <p>在服务器上运行以下命令：</p>
+                <div class="code-block">
+# 安装 certbot
+sudo apt update
+sudo apt install certbot python3-certbot-nginx
+
+# 获取SSL证书
+sudo certbot --nginx -d mining-depot.com -d www.mining-depot.com
+
+# 测试自动续期
+sudo certbot renew --dry-run
+                </div>
+            </div>
+            <div class="step-content">
+                <h4>1.2 手动配置证书</h4>
+                <p>如果您有证书文件，需要：</p>
+                <p>1. 将证书文件上传到服务器</p>
+                <p>2. 在 nginx.conf 中指定证书路径</p>
+                <p>3. 重启 Nginx 服务</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">步骤 2: 配置Nginx</div>
+            <div class="step-content">
+                <h4>2.1 创建配置文件</h4>
+                <p>将提供的 nginx.conf 文件上传到服务器：</p>
+                <div class="code-block">
+# 通常位置
+/etc/nginx/sites-available/mining-depot.com
+                </div>
+            </div>
+            <div class="step-content">
+                <h4>2.2 启用站点</h4>
+                <div class="code-block">
+# 创建软链接
+sudo ln -s /etc/nginx/sites-available/mining-depot.com /etc/nginx/sites-enabled/
+
+# 测试配置
+sudo nginx -t
+
+# 重启Nginx
+sudo systemctl restart nginx
+                </div>
+            </div>
+            <div class="step-content">
+                <h4>2.3 更新证书路径</h4>
+                <p>在 nginx.conf 中更新证书路径：</p>
+                <div class="code-block">
+# 更新这些行
+ssl_certificate /etc/letsencrypt/live/mining-depot.com/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/mining-depot.com/privkey.pem;
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">步骤 3: 上传网站文件</div>
+            <div class="step-content">
+                <h4>3.1 准备文件</h4>
+                <p>1. 运行部署脚本: <code>deploy.bat</code></p>
+                <p>2. 确保所有文件都在 <code>deploy\</code> 目录中</p>
+                <p>3. 注意：不需要 .htaccess 文件</p>
+            </div>
+            <div class="step-content">
+                <h4>3.2 上传到服务器</h4>
+                <p>使用SCP或SFTP上传文件：</p>
+                <div class="code-block">
+# 使用SCP上传
+scp -r deploy/* user@your-server:/var/www/html/
+
+# 或使用SFTP
+sftp user@your-server
+put -r deploy/* /var/www/html/
+                </div>
+            </div>
+            <div class="step-content">
+                <h4>3.3 设置文件权限</h4>
+                <div class="code-block">
+# 设置正确的权限
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+                </div>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">步骤 4: 测试配置</div>
+            <div class="step-content">
+                <h4>4.1 基本测试</h4>
+                <p>1. 访问 <code>https://www.mining-depot.com</code></p>
+                <p>2. 检查地址栏是否显示安全锁图标</p>
+                <p>3. 测试 <code>http://mining-depot.com</code> 重定向</p>
+            </div>
+            <div class="step-content">
+                <h4>4.2 使用诊断工具</h4>
+                <p>1. 访问 <code>https://www.mining-depot.com/ssl-test.html</code></p>
+                <p>2. 查看详细的SSL状态报告</p>
+                <p>3. 使用SSL Labs测试: https://www.ssllabs.com/ssltest/</p>
+            </div>
+            <div class="step-content">
+                <h4>4.3 检查Nginx日志</h4>
+                <div class="code-block">
+# 查看错误日志
+sudo tail -f /var/log/nginx/error.log
+
+# 查看访问日志
+sudo tail -f /var/log/nginx/access.log
+                </div>
+            </div>
+        </div>
+
+        <div class="checklist">
+            <h3>📋 Nginx配置检查清单</h3>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>SSL证书已正确安装和配置</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>nginx.conf 文件已上传并配置正确</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>站点已启用 (sites-enabled 软链接)</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>Nginx配置测试通过 (nginx -t)</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>Nginx服务已重启</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>网站文件已上传到正确目录</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>文件权限设置正确 (www-data:www-data)</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>HTTPS访问正常，显示安全锁图标</span>
+            </div>
+            <div class="checklist-item">
+                <span class="checklist-icon">☐</span>
+                <span>HTTP自动重定向到HTTPS</span>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-title">常见问题解决</div>
+            <div class="step-content">
+                <h4>问题1: SSL证书错误</h4>
+                <p><strong>解决方案:</strong></p>
+                <p>1. 检查证书路径是否正确</p>
+                <p>2. 确保证书文件存在且可读</p>
+                <p>3. 检查证书是否过期</p>
+                <div class="code-block">
+# 检查证书
+sudo openssl x509 -in /etc/letsencrypt/live/mining-depot.com/fullchain.pem -text -noout
+                </div>
+            </div>
+            <div class="step-content">
+                <h4>问题2: 重定向不工作</h4>
+                <p><strong>解决方案:</strong></p>
+                <p>1. 检查 nginx.conf 配置</p>
+                <p>2. 确保 server 块配置正确</p>
+                <p>3. 重启 Nginx 服务</p>
+            </div>
+            <div class="step-content">
+                <h4>问题3: 403 Forbidden 错误</h4>
+                <p><strong>解决方案:</strong></p>
+                <p>1. 检查文件权限</p>
+                <p>2. 确保文件所有者是 www-data</p>
+                <div class="code-block">
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+                </div>
+            </div>
+        </div>
+
+        <div class="success">
+            <h3>✅ 配置成功标志</h3>
+            <p>当Nginx SSL配置成功后，您应该能够：</p>
+            <ul>
+                <li>访问 https://www.mining-depot.com 显示安全锁图标</li>
+                <li>访问 http://mining-depot.com 自动重定向到HTTPS</li>
+                <li>不再看到"不安全"或"ERR_SSL_PROTOCOL_ERROR"错误</li>
+                <li>SSL Labs测试显示A级评级</li>
+                <li>Nginx错误日志中没有SSL相关错误</li>
+            </ul>
+        </div>
+
+        <div class="error">
+            <h3>🆘 如果问题仍然存在</h3>
+            <p>请检查以下内容：</p>
+            <ul>
+                <li>Nginx错误日志: <code>sudo tail -f /var/log/nginx/error.log</code></li>
+                <li>SSL证书状态: <code>sudo certbot certificates</code></li>
+                <li>Nginx配置测试: <code>sudo nginx -t</code></li>
+                <li>服务状态: <code>sudo systemctl status nginx</code></li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/" class="action-button">🏠 返回首页</a>
+            <a href="ssl-test.html" class="action-button">🧪 SSL测试</a>
+            <a href="https://www.ssllabs.com/ssltest/" target="_blank" class="action-button">🌐 SSL Labs测试</a>
+        </div>
+    </div>
+</body>
+</html>

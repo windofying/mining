@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <script>
-        // 自动跳转： ONLY 如果用户访问的是www版本，则跳转到非www版本
-        // 精确判断，避免循环跳转
-        if (window.location.hostname === 'www.mining-depot.com') {
-            // 只有当当前是www版本时，才跳转到非www版本
-            window.location.href = 'https://mining-depot.com' + window.location.pathname + window.location.search;
-        }
-        // 如果访问的是 mining-depot.com，就什么都不做，正常显示页面
-    </script>
-    <!-- 备用Meta标签 ONLY 用于www版本 -->
-    <meta http-equiv="refresh" content="0; url=https://mining-depot.com/" id="wwwRedirect">
-    <script>
-        // 防止meta标签在非www版本执行
-        if (window.location.hostname !== 'www.mining-depot.com') {
-            document.getElementById('wwwRedirect').remove();
-        }
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mining Depot USA, Inc. - Cryptocurrency Mining Solutions</title>

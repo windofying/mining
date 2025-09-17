@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // 自动跳转：如果用户访问的是www版本，则跳转到非www版本
+    if (window.location.hostname === 'www.mining-depot.com') {
+        window.location.href = 'https://mining-depot.com' + window.location.pathname + window.location.search;
+    }
+</script>
+<!-- 同时做一个备用的Meta标签跳转，以防用户禁用JavaScript -->
+<meta http-equiv="refresh" content="0; url=https://mining-depot.com/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mining Depot USA, Inc. - Cryptocurrency Mining Solutions</title>
